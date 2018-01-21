@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
 	// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
@@ -10,13 +13,17 @@ func main() {
 
 	sum := 0
 
+	start := time.Now()
+
 	for i := 0; i < n; i++ {
 		if isMultipleOf3Or5(i) {
 			sum += i
 		}
 	}
 
-	fmt.Printf("The sum of all multiples of 3 or 5 below 1000 is: %d", sum)
+	elapsed := time.Since(start)
+
+	fmt.Printf("The sum of all multiples of 3 or 5 below 1000 is: %d.  Execution time: %d", sum, elapsed)
 }
 
 func isMultipleOf3Or5(num int) bool {

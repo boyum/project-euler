@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 var sumEvenValuedTerms int
@@ -12,16 +13,22 @@ func main() {
 	// By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
 	const max int = 4000000
+	thisNum := 1
+	lastNum := 0
 
-	fibonacci(1, 0, max)
+	start := time.Now()
 
-	fmt.Printf("The sum of all even-valued terms is: %d", sumEvenValuedTerms)
+	fibonacci(&thisNum, &lastNum, max)
+
+	elapsed := time.Since(start)
+
+	fmt.Printf("The sum of all even-valued terms is: %d. Execution time: %d", sumEvenValuedTerms, elapsed)
 }
 
-func fibonacci(thisNum int, lastNum int, max int) {
-	if thisNum < max {
-		nextNum := thisNum + lastNum
-		fibonacci(nextNum, thisNum, max)
+func fibonacci(thisNum *int, lastNum *int, max int) {
+	if *thisNum < max {
+		nextNum := *thisNum + *lastNum
+		fibonacci(&nextNum, thisNum, max)
 
 		if nextNum%2 == 0 {
 			sumEvenValuedTerms += nextNum
