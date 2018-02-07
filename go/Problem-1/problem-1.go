@@ -23,7 +23,7 @@ func main() {
 
 	elapsed := time.Since(start)
 
-	fmt.Printf("The sum of all multiples of 3 or 5 below 1000 is: %d.  Execution time: %d", sum, elapsed)
+	fmt.Printf("The sum of all multiples of 3 or 5 below 1000 is: %d.  Execution time: %s", sum, elapsed)
 }
 
 func isMultipleOf3Or5(num int) bool {

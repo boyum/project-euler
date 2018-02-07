@@ -25,7 +25,7 @@ func main() {
 
 	elapsed := time.Since(start)
 
-	fmt.Printf("The largest factor is %d. Execution time: %d", currentDivisor, elapsed)
+	fmt.Printf("The largest factor is %d. Execution time: %s", currentDivisor, elapsed)
 }
 
 func isFactor(factor *int, number *int) bool {

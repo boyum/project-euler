@@ -22,7 +22,7 @@ func main() {
 
 	elapsed := time.Since(start)
 
-	fmt.Printf("The sum of all even-valued terms is: %d. Execution time: %d", sumEvenValuedTerms, elapsed)
+	fmt.Printf("The sum of all even-valued terms is: %d. Execution time: %s", sumEvenValuedTerms, elapsed)
 }
 
 func fibonacci(thisNum *int, lastNum *int, max int) {
